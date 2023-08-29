@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-
+import {
+  useAccessStore,
+} from "../store";
 export const OPENAI_URL = "api.openai.com";
 const DEFAULT_PROTOCOL = "https";
+const accessStore = useAccessStore();
 const PROTOCOL = process.env.PROTOCOL || DEFAULT_PROTOCOL;
 const BASE_URL = process.env.BASE_URL || OPENAI_URL;
 const DISABLE_GPT4 = !!process.env.DISABLE_GPT4;
@@ -14,7 +17,8 @@ export async function requestOpenai(req: NextRequest) {
     "",
   );
 
-  let baseUrl = BASE_URL;
+  // let baseUrl = BASE_URL;
+  let baseUrl = accessStore.openaiUrl || OPENAI_URL;
 
   if (!baseUrl.startsWith("http")) {
     baseUrl = `${PROTOCOL}://${baseUrl}`;
