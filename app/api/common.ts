@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
   useAccessStore,
-} from "../store";
+} from "../store/access";
 export const OPENAI_URL = "api.openai.com";
 const DEFAULT_PROTOCOL = "https";
 const accessStore = useAccessStore();
