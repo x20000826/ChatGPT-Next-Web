@@ -260,6 +260,20 @@
   }
 }
 
+.modal-message {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modal-message span {
+  display: block; 
+}
+
+.modal-message span:nth-of-type(2) {
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 600px) {
   .chat-body-title {
     text-align: center;

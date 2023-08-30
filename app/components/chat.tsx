@@ -240,7 +240,7 @@ export function PromptHints(props: {
 }) {
   const noPrompts = props.prompts.length === 0;
   const [selectIndex, setSelectIndex] = useState(0);
-  const imageToShow = <img src="/path/to/image.png" />;
+  const imageToShow = <img src="https://wx-app-1312414756.cos.ap-beijing.myqcloud.com/free/xiayexiaolu_wx_app.jpg" />;
   const selectedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -1286,7 +1286,14 @@ function _Chat() {
       )}
 
       {showImageModal && (
-        <Modal onClose={() => setShowImageModal(false)}>
+        <Modal
+          title="关注作者"
+          onClose={() => setShowImageModal(false)}>
+          <div className="modal-message">
+            <span>无需打赏,</span>
+            <span>微信扫描下方二维码</span>
+            <span>关注我即可获得ApiKey 以及 服务器接口Host哟~</span>
+          </div>
           {imageToShow}
         </Modal>
       )}
