@@ -1285,8 +1285,10 @@ function _Chat() {
       )}
 
       {showImageModal && (
+        <div className="modal-mask">
         <Modal
           title="关注作者"
+          className="modal-center"
           onClose={() => setShowImageModal(false)}>
           <div className="modal-message">
             <span>无需打赏,</span>
@@ -1295,6 +1297,7 @@ function _Chat() {
           </div>
           {imageToShow}
         </Modal>
+        </div>
       )}
     </div>
   );

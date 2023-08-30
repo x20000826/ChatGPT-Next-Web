@@ -260,10 +260,32 @@
   }
 }
 
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .modal-message {
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+}
+
+.modal-center .modal-content {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .modal-message span {
