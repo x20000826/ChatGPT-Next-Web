@@ -8,7 +8,7 @@ const cn = {
   Error: {
     Unauthorized: isApp
       ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。"
-      : "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码，或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
+      : "访问服务器失败，请前往[设置](/#/settings)页填入你自己的 OpenAI API Key 以及 接口地址Host。",
   },
   Auth: {
     Title: "需要密码",
@@ -216,7 +216,7 @@ const cn = {
     },
     Token: {
       Title: "API Key",
-      SubTitle: "使用自己的 Key 可绕过密码访问限制",
+      SubTitle: "使用自己的 Key 或 附赠 Key 可绕过访问限制",
       Placeholder: "OpenAI API Key",
     },
 
@@ -236,7 +236,7 @@ const cn = {
     },
     Endpoint: {
       Title: "接口地址",
-      SubTitle: "除默认地址外，必须包含 http(s)://",
+      SubTitle: "填写您在邮箱中收到的接口地址",
     },
     CustomModel: {
       Title: "自定义模型名",
