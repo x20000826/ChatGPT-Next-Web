@@ -1310,9 +1310,10 @@ function _Chat() {
               <span>无需打赏,</span>
               <span>微信扫描下方二维码</span>
               <span>关注我即可获得ApiKey 以及 服务器接口Host哟~</span>
+               {imageToShow}
             </div>
 
-            {imageToShow}
+           
 
           </Modal>
         </div>
