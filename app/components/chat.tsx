@@ -1284,19 +1284,38 @@ function _Chat() {
         />
       )}
 
-      {showImageModal && (
+      {/* {showImageModal && (
         <div className="modal-mask">
-        <Modal
-          title="关注作者"
-          className="modal-center"
-          onClose={() => setShowImageModal(false)}>
-          <div className="modal-message">
-            <span>无需打赏,</span>
-            <span>微信扫描下方二维码</span>
-            <span>关注我即可获得ApiKey 以及 服务器接口Host哟~</span>
-          </div>
-          {imageToShow}
-        </Modal>
+          <Modal
+            title="关注作者"
+            className="modal-center"
+            onClose={() => setShowImageModal(false)}>
+            <div className="modal-message">
+              <span>无需打赏,</span>
+              <span>微信扫描下方二维码</span>
+              <span>关注我即可获得ApiKey 以及 服务器接口Host哟~</span>
+            </div>
+            {imageToShow}
+          </Modal>
+        </div>
+      )} */}
+
+      {showImageModal && (
+        <div className={styles['modal-mask']}>
+          <Modal
+            title="关注作者"
+            className={styles['modal-center']}
+            onClose={() => setShowImageModal(false)}
+          >
+            <div className={styles['modal-message']}>
+              <span>无需打赏,</span>
+              <span>微信扫描下方二维码</span>
+              <span>关注我即可获得ApiKey 以及 服务器接口Host哟~</span>
+            </div>
+
+            {imageToShow}
+
+          </Modal>
         </div>
       )}
     </div>
