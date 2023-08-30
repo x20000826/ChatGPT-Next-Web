@@ -240,7 +240,6 @@ export function PromptHints(props: {
 }) {
   const noPrompts = props.prompts.length === 0;
   const [selectIndex, setSelectIndex] = useState(0);
-  const imageToShow = <img src="https://wx-app-1312414756.cos.ap-beijing.myqcloud.com/free/xiayexiaolu_wx_app.jpg" />;
   const selectedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -607,7 +606,7 @@ function _Chat() {
   const session = chatStore.currentSession();
   const config = useAppConfig();
   const fontSize = config.fontSize;
-
+  const imageToShow = <img src="https://wx-app-1312414756.cos.ap-beijing.myqcloud.com/free/xiayexiaolu_wx_app.jpg" />;
   const [showExport, setShowExport] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
