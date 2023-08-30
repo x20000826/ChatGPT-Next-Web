@@ -240,6 +240,7 @@ export function PromptHints(props: {
 }) {
   const noPrompts = props.prompts.length === 0;
   const [selectIndex, setSelectIndex] = useState(0);
+  const imageToShow = <img src="/path/to/image.png" />;
   const selectedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -608,7 +609,7 @@ function _Chat() {
   const fontSize = config.fontSize;
 
   const [showExport, setShowExport] = useState(false);
-
+  const [showImageModal, setShowImageModal] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -882,27 +883,27 @@ function _Chat() {
       .concat(
         isLoading
           ? [
-              {
-                ...createMessage({
-                  role: "assistant",
-                  content: "……",
-                }),
-                preview: true,
-              },
-            ]
+            {
+              ...createMessage({
+                role: "assistant",
+                content: "……",
+              }),
+              preview: true,
+            },
+          ]
           : [],
       )
       .concat(
         userInput.length > 0 && config.sendPreviewBubble
           ? [
-              {
-                ...createMessage({
-                  role: "user",
-                  content: userInput,
-                }),
-                preview: true,
-              },
-            ]
+            {
+              ...createMessage({
+                role: "user",
+                content: userInput,
+              }),
+              preview: true,
+            },
+          ]
           : [],
       );
   }, [
@@ -994,7 +995,7 @@ function _Chat() {
         if (payload.key || payload.url) {
           showConfirm(
             Locale.URLCommand.Settings +
-              `\n${JSON.stringify(payload, null, 4)}`,
+            `\n${JSON.stringify(payload, null, 4)}`,
           ).then((res) => {
             if (!res) return;
             if (payload.key) {
@@ -1057,7 +1058,7 @@ function _Chat() {
                 icon={<GoodIcon />}
                 title="打赏作者"
                 bordered
-                onClick={() => setIsEditingMessage(true)}
+                onClick={() => setShowImageModal(true)}
               />
             </div>
           )}
@@ -1282,6 +1283,12 @@ function _Chat() {
             setIsEditingMessage(false);
           }}
         />
+      )}
+
+      {showImageModal && (
+        <Modal onClose={() => setShowImageModal(false)}>
+          {imageToShow}
+        </Modal>
       )}
     </div>
   );
