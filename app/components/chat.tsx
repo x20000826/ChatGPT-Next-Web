@@ -16,6 +16,7 @@ import ReturnIcon from "../icons/return.svg";
 import CopyIcon from "../icons/copy.svg";
 import LoadingIcon from "../icons/three-dots.svg";
 import PromptIcon from "../icons/prompt.svg";
+import GoodIcon from "../icons/good.svg";
 import MaskIcon from "../icons/mask.svg";
 import MaxIcon from "../icons/max.svg";
 import MinIcon from "../icons/min.svg";
@@ -1045,6 +1046,16 @@ function _Chat() {
             <div className="window-action-button">
               <IconButton
                 icon={<RenameIcon />}
+                bordered
+                onClick={() => setIsEditingMessage(true)}
+              />
+            </div>
+          )}
+          {!isMobileScreen && (
+            <div className="window-action-button">
+              <IconButton
+                icon={<GoodIcon />}
+                title="打赏作者"
                 bordered
                 onClick={() => setIsEditingMessage(true)}
               />
