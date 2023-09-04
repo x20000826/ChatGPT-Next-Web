@@ -650,19 +650,19 @@ export function Settings() {
 
           {!accessStore.hideUserApiKey ? (
             <>
-{/*               <ListItem
+              <ListItem
                 title={Locale.Settings.Endpoint.Title}
                 subTitle={Locale.Settings.Endpoint.SubTitle}
               >
                 <input
                   type="text"
                   value={accessStore.openaiUrl}
-                  placeholder="https://api.openai.com/"
+                  placeholder="输入代理接口地址"
                   onChange={(e) =>
                     accessStore.updateOpenAiUrl(e.currentTarget.value)
                   }
                 ></input>
-              </ListItem> */}
+              </ListItem>
               <ListItem
                 title={Locale.Settings.Token.Title}
                 subTitle={Locale.Settings.Token.SubTitle}
