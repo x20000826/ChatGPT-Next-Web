@@ -17,6 +17,7 @@ import CopyIcon from "../icons/copy.svg";
 import LoadingIcon from "../icons/three-dots.svg";
 import PromptIcon from "../icons/prompt.svg";
 import GoodIcon from "../icons/good.svg";
+import GongGaoIcon from "../icons/gonggao.svg";
 import MaskIcon from "../icons/mask.svg";
 import MaxIcon from "../icons/max.svg";
 import MinIcon from "../icons/min.svg";
@@ -609,6 +610,7 @@ function _Chat() {
   const imageToShow = <img src="https://wx-app-1312414756.cos.ap-beijing.myqcloud.com/free/xiayexiaolu_wx_app.jpg" />;
   const [showExport, setShowExport] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [showInfoModal, setShowInfoModal] = useState(true);  // 初始化的时候打开
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -1061,6 +1063,16 @@ function _Chat() {
               />
             </div>
           )}
+          {!isMobileScreen && (
+              <div className="window-action-button">
+                <IconButton
+                    icon={<GongGaoIcon />}
+                    title="全局公告"
+                    bordered
+                    onClick={() => setShowInfoModal(true)}
+                />
+              </div>
+          )}
           <div className="window-action-button">
             <IconButton
               icon={<ExportIcon />}
@@ -1312,11 +1324,27 @@ function _Chat() {
               <span>关注我即可获得ApiKey 以及 服务器接口Host哟~</span>
                {imageToShow}
             </div>
-
-           
-
           </Modal>
         </div>
+      )}
+      {showInfoModal && (
+          <div className={styles['modal-mask']}>
+            <Modal
+                title="全局公告"
+                onClose={() => setShowInfoModal(false)}
+            >
+              <div className={styles['modal-message']}>
+                <span>我很抱歉,本来想永久提供公共Key给大家使用的,但是我远远低估了用户量激增所带来的风险</span>
+                <span>首先,由于国内对于生成式语言模型的管控,其实本质上这个东西就是违规的,我最初的想法只是将这个东西做出来分享给有需要的人</span>
+                <span>但是很显然,公共key已经被滥用了,大量的流量涌入服务器,服务器带宽完全不够用,本身的公益性质也不太可能支撑起高质量服务器</span>
+                <span>为此,我想出了两个解决方案:</span>
+                <span>1:将网站整体搬迁到国外服务器,从而规避国内的监管。国外服务器已经搭建测试好了,我预计在9月12号晚上12点正式关闭本网站,并同时启动新网站,新网址为:tochat.xiayexiaolu.com  (新网站目前无法访问,就是当前网址的后缀从top换成了com)</span>
+                <span>2:全面限制公共key的使用。慢慢的会关闭所有公共key的使用,但是所有用户都可以通过关注下面的微信小程序来获得你的专属key,每个key每小时每ip只能问答60次</span>
+                {imageToShow}
+                <span style="color:red">另外,我还提供chatGPT官方账号的出售服务,当然,如果您只是一个学生,我想免费的一定是够您用的,我这个只提供给特定的人群,购买链接未来会公布出来</span>
+              </div>
+            </Modal>
+          </div>
       )}
     </div>
   );
