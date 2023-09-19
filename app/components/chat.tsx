@@ -610,7 +610,7 @@ function _Chat() {
   const imageToShow = <img src="https://wx-app-1312414756.cos.ap-beijing.myqcloud.com/free/xiayexiaolu_wx_app.jpg" />;
   const [showExport, setShowExport] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
-  const [showInfoModal, setShowInfoModal] = useState(true);  // 初始化的时候打开
+  // const [showInfoModal, setShowInfoModal] = useState(true);  // 初始化的时候打开
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -1063,16 +1063,16 @@ function _Chat() {
               />
             </div>
           )}
-          {!isMobileScreen && (
-              <div className="window-action-button">
-                <IconButton
-                    icon={<GongGaoIcon />}
-                    title="全局公告"
-                    bordered
-                    onClick={() => setShowInfoModal(true)}
-                />
-              </div>
-          )}
+          {/*{!isMobileScreen && (*/}
+          {/*    <div className="window-action-button">*/}
+          {/*      <IconButton*/}
+          {/*          icon={<GongGaoIcon />}*/}
+          {/*          title="全局公告"*/}
+          {/*          bordered*/}
+          {/*          onClick={() => setShowInfoModal(true)}*/}
+          {/*      />*/}
+          {/*    </div>*/}
+          {/*)}*/}
           <div className="window-action-button">
             <IconButton
               icon={<ExportIcon />}
@@ -1327,21 +1327,21 @@ function _Chat() {
           </Modal>
         </div>
       )}
-      {showInfoModal && (
-          <div className={styles['modal-mask']}>
-            <Modal
-                title="全局公告"
-                onClose={() => setShowInfoModal(false)}
-            >
-              <div className={styles['modal-message']}>
-                <span>对不起呀家人们,工作太忙了,才发现近期有很多人关注了小程序但是似乎没有收到邮件</span>
-                <span>这似乎是由于小程序和后端信息传输的时候出现了异步问题,具体的我也不清楚,头大~我也不想排查</span>
-                <span>因为后台数据全加密,我也不知道谁关注了,我只能看到后台生成了40多条密钥,但是却没有用户名...索性我也懒得搞验证了,大家随缘用吧</span>
-                <span style={{ color: 'red' }}>我真是被小程序气坏了,垃圾微信！垃圾微信！垃圾微信！,公共密钥以后也可以随便用,如果大家有对安全性有要求,可以去我搭建的商店下单(不用支付的,自动发key,再强调一下!!不用支付！不用支付！不用支付！,商店地址是:https://shop.xiayexiaolu.com/ ,再说一遍：免费的！不用支付！！bye~)</span>
-              </div>
-            </Modal>
-          </div>
-      )}
+      {/*{showInfoModal && (*/}
+      {/*    <div className={styles['modal-mask']}>*/}
+      {/*      <Modal*/}
+      {/*          title="全局公告"*/}
+      {/*          onClose={() => setShowInfoModal(false)}*/}
+      {/*      >*/}
+      {/*        <div className={styles['modal-message']}>*/}
+      {/*          <span>对不起呀家人们,工作太忙了,才发现近期有很多人关注了小程序但是似乎没有收到邮件</span>*/}
+      {/*          <span>这似乎是由于小程序和后端信息传输的时候出现了异步问题,具体的我也不清楚,头大~我也不想排查</span>*/}
+      {/*          <span>因为后台数据全加密,我也不知道谁关注了,我只能看到后台生成了40多条密钥,但是却没有用户名...索性我也懒得搞验证了,大家随缘用吧</span>*/}
+      {/*          <span style={{ color: 'red' }}>我真是被小程序气坏了,垃圾微信！垃圾微信！垃圾微信！,公共密钥以后也可以随便用,如果大家有对安全性有要求,可以去我搭建的商店下单(商店地址是:https://shop.xiayexiaolu.com/) bye~</span>*/}
+      {/*        </div>*/}
+      {/*      </Modal>*/}
+      {/*    </div>*/}
+      {/*)}*/}
     </div>
   );
 }

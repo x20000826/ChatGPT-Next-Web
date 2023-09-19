@@ -8,7 +8,7 @@ const cn = {
   Error: {
     Unauthorized: isApp
       ? "检测到无效 API Key，请前往[设置](/#/settings)页检查 API Key 是否配置正确。"
-      : "访问服务器失败，请前往[设置](/#/settings)页填入你自己的 OpenAI API Key",
+      : "访问服务器失败，请前往[设置](/#/settings)页填入你自己的 OpenAI API Key,您可以选择使用公共key或前往[小鹿的神秘商店](https://shop.xiayexiaolu.com/)购买,因支付限制,您可能需要付1分钱",
   },
   Auth: {
     Title: "需要密码",
